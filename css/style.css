@@ -593,7 +593,7 @@ footer a:hover {
 
     background:
         linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
-        url("../images/hero-bg.jpg.png");
+        url("../images/hero-bg.png");
 
     background-size:cover;
     background-position:center;
