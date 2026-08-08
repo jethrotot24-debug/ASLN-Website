@@ -1,9 +1,63 @@
+const publicProfiles = {
+    Sarah: {
+        name: "Sarah, 24",
+        location: "📍 Kampala, Uganda",
+        image: "images/lady09.png",
+        bio: "Loves travel, music and entrepreneurship.",
+        interests: ["✈️ Travel", "🎵 Music", "💼 Entrepreneurship"]
+    },
+
+    Amina: {
+        name: "Amina, 27",
+        location: "📍 Nairobi, Kenya",
+        image: "images/lady01.png",
+        bio: "Passionate about business and adventure.",
+        interests: ["💼 Business", "✈️ Adventure", "🌍 Travel"]
+    },
+
+    Aisha: {
+        name: "Aisha, 28",
+        location: "📍 Entebbe, Uganda",
+        image: "images/lady03.png",
+        bio: "Engineer who enjoys hiking and good conversation.",
+        interests: ["🥾 Hiking", "💻 Engineering", "💬 Conversation"]
+    },
+
+    Mercy: {
+        name: "Mercy, 26",
+        location: "📍 Lagos, Nigeria",
+        image: "images/lady08.png",
+        bio: "Creative designer with a love for art and culture.",
+        interests: ["🎨 Art", "🌍 Culture", "💻 Design"]
+    },
+
+    Xeinah: {
+        name: "Xeinah, 29",
+        location: "📍 Johannesburg, South Africa",
+        image: "images/lady10.png",
+        bio: "Doctor who values family, faith, and fitness.",
+        interests: ["❤️ Family", "💪 Fitness", "🌍 Travel"]
+    },
+
+    Shanice: {
+        name: "Shanice, 25",
+        location: "📍 Accra, Ghana",
+        image: "images/lady12.png",
+        bio: "Marketing professional and foodie at heart.",
+        interests: ["📈 Marketing", "🍽️ Food", "✈️ Travel"]
+    }
+}; 
+
 function likeProfile(name) {
-    alert("You liked " + name + "! We'll notify you if it's a match.");
+    console.log("You liked " + name);
 }
 
-function passProfile(name) {
-    alert("You passed on " + name + ".");
+function passProfile(name, button) {
+    const card = button.closest(".person-card");
+
+    if (card) {
+        card.remove();
+    }
 }
 
 function saveUser(event) {
@@ -72,15 +126,61 @@ function loadProfile() {
     }
 }
 
-function initLikeButtons() {
-    document.querySelectorAll(".like-btn").forEach(function (button) {
-        button.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            button.classList.toggle("liked");
-        });
-    });
+  function openProfile(name, event) {
+    if (event.target.closest("button")) {
+        return;
+    }
+
+    window.location.href =
+        "public-profile.html?name=" + encodeURIComponent(name);
 }
+
+function toggleLike(button, profileName) {
+    const likedProfiles =
+        JSON.parse(localStorage.getItem("aslnLikedProfiles")) || [];
+
+    const heart = button.querySelector(".heart");
+    const index = likedProfiles.indexOf(profileName);
+
+    if (index === -1) {
+        likedProfiles.push(profileName);
+        button.classList.add("liked");
+        heart.textContent = "❤️";
+    } else {
+        likedProfiles.splice(index, 1);
+        button.classList.remove("liked");
+        heart.textContent = "♡";
+    }
+
+    localStorage.setItem(
+        "aslnLikedProfiles",
+        JSON.stringify(likedProfiles)
+    );
+}
+
+function initLikeButtons() {
+    const likedProfiles =
+        JSON.parse(localStorage.getItem("aslnLikedProfiles")) || [];
+
+    document.querySelectorAll(".like-btn").forEach(function (button) {
+        const card = button.closest(".person-card");
+
+        if (!card) {
+            return;
+        }
+
+        const profileName = card.querySelector("h2").textContent;
+        const heart = button.querySelector(".heart");
+
+        if (likedProfiles.includes(profileName)) {
+            button.classList.add("liked", "no-animation");
+
+            if (heart) {
+                heart.textContent = "❤️";
+            }
+        }
+    });
+}  
 
 function initConnectButton() {
     const connectBtn = document.querySelector(".connect-btn");
@@ -124,3 +224,76 @@ initLikeButtons();
 initConnectButton();
 initHeroCTA();
 setActiveNav();
+
+function loadPublicProfile() {
+    const params = new URLSearchParams(window.location.search);
+    const profileName = params.get("name");
+
+    if (!profileName || !publicProfiles[profileName]) {
+        window.location.href = "discover.html";
+        return;
+    }
+
+    const profile = publicProfiles[profileName];
+
+    const image = document.getElementById("publicProfileImage");
+    const name = document.getElementById("publicProfileName");
+    const location = document.getElementById("publicProfileLocation");
+    const bio = document.getElementById("publicProfileBio");
+    const interests = document.getElementById("publicProfileInterests");
+    const likeButton = document.getElementById("publicLikeButton");
+
+    image.src = profile.image;
+    image.alt = profile.name;
+    name.textContent = profile.name;
+    location.textContent = profile.location;
+    bio.textContent = profile.bio;
+
+    interests.innerHTML = "";
+
+    profile.interests.forEach(function (interest) {
+        const tag = document.createElement("span");
+        tag.textContent = interest;
+        interests.appendChild(tag);
+    });
+
+        if (likeButton) {
+        const likedProfiles =
+            JSON.parse(localStorage.getItem("aslnLikedProfiles")) || [];
+
+        if (likedProfiles.includes(profileName)) {
+            likeButton.classList.add("liked", "no-animation");
+            likeButton.textContent = "❤️ Like";
+        }
+
+        likeButton.onclick = function () {
+            const index = likedProfiles.indexOf(profileName);
+
+            if (likeButton.classList.contains("liked")) {
+                likeButton.classList.remove("liked");
+                likeButton.classList.remove("no-animation");
+                likeButton.textContent = "♡ Like";
+
+                if (index !== -1) {
+                    likedProfiles.splice(index, 1);
+                }
+            } else {
+                likeButton.classList.add("liked");
+                likeButton.textContent = "❤️ Like";
+
+                if (index === -1) {
+                    likedProfiles.push(profileName);
+                }
+            }
+
+            localStorage.setItem(
+                "aslnLikedProfiles",
+                JSON.stringify(likedProfiles)
+            );
+        };
+    }
+}
+
+if (document.getElementById("publicProfileImage")) {
+    loadPublicProfile();
+}

@@ -27,69 +27,81 @@
     </p>
 
     <div class="profiles-container">
-        <div class="person-card">
+        <div class="person-card" onclick="openProfile('Sarah', event)">
             <img src="images/lady09.png" alt="Sarah">
             <h2>Sarah, 24</h2>
             <p>Kampala, Uganda</p>
             <p>Loves travel, music and entrepreneurship.</p>
             <div class="card-buttons">
-                <button onclick="likeProfile('Sarah')">Like</button>
-                <button onclick="passProfile('Sarah')">Pass</button>
+              <button class="like-btn" onclick="toggleLike(this, 'Sarah')">
+    <span class="heart">♡</span> Like
+</button>
+                <button onclick="passProfile('Sarah', this)">Pass</button>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" onclick="openProfile('Amina', event)">
             <img src="images/lady01.png" alt="Amina">
             <h2>Amina, 27</h2>
             <p>Nairobi, Kenya</p>
             <p>Passionate about business and adventure.</p>
             <div class="card-buttons">
-                <button onclick="likeProfile('Amina')">Like</button>
-                <button onclick="passProfile('Amina')">Pass</button>
+                <button class="like-btn" onclick="likeProfile('Amina')">
+    <span class="heart">♡</span> Like
+</button>
+                <button onclick="passProfile('Amina', this)">Pass</button>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" onclick="openProfile('Aisha', event)">
             <img src="images/lady03.png" alt="Aisha">
             <h2>Aisha, 28</h2>
             <p>Entebbe, Uganda</p>
             <p>Engineer who enjoys hiking and good conversation.</p>
             <div class="card-buttons">
-                <button onclick="likeProfile('Aisha')">Like</button>
-                <button onclick="passProfile('Aisha')">Pass</button>
+                <button class="like-btn" onclick="likeProfile('Aisha')">
+    <span class="heart">♡</span> Like
+</button>
+                <button onclick="passProfile('Aisha', this)">Pass</button>
             </div>
         </div>
 
-        <div class="person-card">
-            <img src="images/lady08.png" alt="Zainab">
+        <div class="person-card" onclick="openProfile('Mercy', event)">
+            <img src="images/lady08.png" alt="Mercy">
             <h2>Mercy, 26</h2>
             <p>Lagos, Nigeria</p>
             <p>Creative designer with a love for art and culture.</p>
             <div class="card-buttons">
-                <button onclick="likeProfile('Mercy')">Like</button>
-                <button onclick="passProfile('Mercy')">Pass</button>
+                <button class="like-btn" onclick="likeProfile('Mercy')">
+    <span class="heart">♡</span> Like
+</button>
+                <button onclick="passProfile('Mercy', this)">Pass</button>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" onclick="openProfile('Xeinah', event)">
             <img src="images/lady10.png" alt="Xeinah">
             <h2>Xeinah, 29</h2>
             <p>Johannesburg, South Africa</p>
             <p>Doctor who values family, faith, and fitness.</p>
             <div class="card-buttons">
-                <button onclick="likeProfile('Xeinah')">Like</button>
-                <button onclick="passProfile('Xeinah')">Pass</button>
+               <button class="like-btn" onclick="likeProfile('Xeinah')">
+    <span class="heart">♡</span> Like
+</button>
+                <button onclick="passProfile('Xeinah', this)">Pass</button>
             </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card" onclick="openProfile('Shanice', event)">
             <img src="images/lady12.png" alt="Shanice">
             <h2>Shanice, 25</h2>
             <p>Accra, Ghana</p>
             <p>Marketing professional and foodie at heart.</p>
             <div class="card-buttons">
-                <button onclick="likeProfile('Shanice')">Like</button>
-                <button onclick="passProfile('Shanice')">Pass</button>
+                <button class="like-btn" onclick="likeProfile('Shanice')">
+    <span class="heart">♡</span> Like
+</button>
+                <button onclick="passProfile('Shanice', this)">Pass</button>
             </div>
         </div>
     </div>

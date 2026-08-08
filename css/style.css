@@ -1765,3 +1765,101 @@ footer a:hover {
     cursor:pointer;
 
 }
+
+.like-btn.no-animation {
+    animation: none !important;
+}
+
+/* ASLN SINGLE PROFILE */
+
+.single-profile {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.single-profile-card {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 40px;
+    background: #161616;
+    border: 1px solid #d4af37;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.single-profile-image {
+    width: 380px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.single-profile-info {
+    flex: 1;
+}
+
+.single-profile-info h1 {
+    color: #d4af37;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.profile-location {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.profile-bio {
+    color: #ddd;
+    line-height: 1.7;
+    margin: 25px 0;
+}
+
+.single-profile-info h2 {
+    color: #d4af37;
+}
+
+.profile-interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0 30px;
+}
+
+.profile-interests span {
+    background: #222;
+    border: 1px solid #d4af37;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.profile-actions button {
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.message-btn {
+    background: #d4af37;
+    color: #111;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: #d4af37;
+    text-decoration: none;
+}
