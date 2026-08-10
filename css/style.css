@@ -1863,3 +1863,358 @@ footer a:hover {
     color: #d4af37;
     text-decoration: none;
 }
+
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Header */
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 70vh;
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 9vw, 54px);
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Discover profiles */
+    .profiles-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .person-card {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .person-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Public profile */
+    .single-profile-card {
+        width: calc(100% - 30px);
+        max-width: 500px;
+        margin: 30px auto;
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .single-profile-card img {
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .single-profile-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .single-profile-info h1 {
+        font-size: 32px;
+    }
+
+    .single-profile-info p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Profile buttons */
+    .profile-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .profile-actions button {
+        width: 100%;
+    }
+
+    /* Messenger */
+    .messenger-container {
+        width: calc(100% - 30px);
+        margin: 20px auto;
+    }
+
+    /* Footer */
+    footer {
+        padding: 25px 15px;
+        text-align: center;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 480px) {
+
+    header {
+        padding: 12px 15px;
+    }
+
+    .hero {
+        padding: 45px 15px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .profiles-container {
+        padding: 15px;
+    }
+
+    .person-card {
+        padding: 15px;
+    }
+
+    .single-profile-card {
+        width: calc(100% - 20px);
+        padding: 15px;
+    }
+
+    .single-profile-info h1 {
+        font-size: 27px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   MOBILE HEADER POLISH
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .main-header {
+        position: relative;
+        padding: 12px 15px;
+    }
+
+    .main-header .header-inner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .main-header .logo {
+        margin: 0;
+    }
+
+    .main-header .logo h1 {
+        font-size: 42px;
+        margin: 0;
+    }
+
+    .main-header .logo p {
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .main-header nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .main-header nav a {
+        font-size: 14px;
+        padding: 4px 6px;
+    }
+
+    .header-actions {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 2px;
+    }
+
+    .header-actions a {
+        padding: 9px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .main-header {
+        padding: 10px 12px;
+    }
+
+    .main-header .logo h1 {
+        font-size: 36px;
+    }
+
+    .main-header .logo p {
+        font-size: 12px;
+    }
+
+    .main-header nav {
+        gap: 7px;
+    }
+
+    .main-header nav a {
+        font-size: 13px;
+        padding: 3px 4px;
+    }
+
+    .header-actions a {
+        padding: 8px 17px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   ABOUT PAGE
+   ========================================= */
+
+.about-page {
+    min-height: auto;
+    padding: 80px 20px 70px;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("../images/hero-bg.png") center/cover fixed;
+}
+
+.about-content {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h1 {
+    margin: 0 0 35px;
+    color: #fff;
+    font-size: clamp(42px, 7vw, 72px);
+}
+
+.about-content h2 {
+    margin: 45px 0 20px;
+    color: #ffd700;
+    font-size: clamp(28px, 5vw, 42px);
+}
+
+.about-content p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.about-content ul {
+    max-width: 600px;
+    margin: 25px auto 40px;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.about-content li {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.about-content li::before {
+    content: "✦";
+    color: #ffd700;
+    margin-right: 12px;
+}
+
+.about-content .hero-cta {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+/* About page on phones */
+@media (max-width: 768px) {
+
+    .about-page {
+        padding: 45px 18px 55px;
+        background-attachment: scroll;
+    }
+
+    .about-content h1 {
+        margin-bottom: 25px;
+    }
+
+    .about-content h2 {
+        margin-top: 35px;
+    }
+
+    .about-content p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .about-content ul {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .about-content li {
+        font-size: 16px;
+        margin: 16px 0;
+    }
+
+    .about-content .hero-cta {
+        margin-bottom: 10px;
+    }
+}
+
+.about-content .hero-cta {
+    display: inline-block;
+    background: #ffd700;
+    color: #111;
+    padding: 16px 32px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 25px;
+    transition: 0.3s ease;
+}
+
+.about-content .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.35);
+}
