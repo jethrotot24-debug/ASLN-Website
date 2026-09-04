@@ -2218,3 +2218,24 @@ footer a:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(255, 215, 0, 0.35);
 }
+
+/* Mobile navigation fix */
+@media (max-width: 768px) {
+
+    header nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
+    }
+
+    header nav a {
+        margin: 0 5px;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+}
+

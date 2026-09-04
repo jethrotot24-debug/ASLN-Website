@@ -209,10 +209,7 @@ function setActiveNav() {
     });
 }
 
-const signupForm = document.getElementById("signupForm");
-if (signupForm) {
-    signupForm.addEventListener("submit", saveUser);
-}
+
 
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
@@ -296,4 +293,45 @@ function loadPublicProfile() {
 
 if (document.getElementById("publicProfileImage")) {
     loadPublicProfile();
+}
+
+const signupForm = document.getElementById("signupForm");
+
+if (signupForm) {
+    signupForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        try {
+            const response = await fetch("http://localhost:5000/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    firstName,
+                    lastName,
+                    email,
+                    password
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert("Account created successfully! Welcome to ASLN 🎉");
+                window.location.href = "login.html";
+            } else {
+                alert(data.message || "Signup failed");
+            }
+
+        } catch (error) {
+            console.error("Signup error:", error);
+            alert("Could not connect to ASLN server.");
+        }
+    });
 }
