@@ -2,115 +2,74 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discover Singles - ASLN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Discover - ASLN</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="discover-page">
 
-<header>
-    <a href="index.html" class="logo">ASLN</a>
-    <nav>
+<header class="main-header">
+    <a href="index.html" class="logo"><h1>ASLN</h1><span>African Single Ladies' Network</span></a>
+    <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="discover.html">Discover</a>
+        <a href="discover.html" class="active">Discover</a>
+        <a href="gallery.html">Moments</a>
+        <a href="messages.html">Messages</a>
         <a href="profile.html">Profile</a>
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
+        <a href="signup.html" class="join-btn">Join Free</a>
     </nav>
 </header>
 
-<section class="discover">
-    <h1>Discover African Singles</h1>
-    <p class="discover-intro">
-        Find genuine connections with amazing people across Africa.
-    </p>
-
-    <div class="profiles-container">
-        <div class="person-card" onclick="openProfile('Sarah', event)">
-            <img src="images/lady09.png" alt="Sarah">
-            <h2>Sarah, 24</h2>
-            <p>Kampala, Uganda</p>
-            <p>Loves travel, music and entrepreneurship.</p>
-            <div class="card-buttons">
-              <button class="like-btn" onclick="toggleLike(this, 'Sarah')">
-    <span class="heart">♡</span> Like
-</button>
-                <button onclick="passProfile('Sarah', this)">Pass</button>
-            </div>
-        </div>
-
-        <div class="person-card" onclick="openProfile('Amina', event)">
-            <img src="images/lady01.png" alt="Amina">
-            <h2>Amina, 27</h2>
-            <p>Nairobi, Kenya</p>
-            <p>Passionate about business and adventure.</p>
-            <div class="card-buttons">
-                <button class="like-btn" onclick="likeProfile('Amina')">
-    <span class="heart">♡</span> Like
-</button>
-                <button onclick="passProfile('Amina', this)">Pass</button>
-            </div>
-        </div>
-
-        <div class="person-card" onclick="openProfile('Aisha', event)">
-            <img src="images/lady03.png" alt="Aisha">
-            <h2>Aisha, 28</h2>
-            <p>Entebbe, Uganda</p>
-            <p>Engineer who enjoys hiking and good conversation.</p>
-            <div class="card-buttons">
-                <button class="like-btn" onclick="likeProfile('Aisha')">
-    <span class="heart">♡</span> Like
-</button>
-                <button onclick="passProfile('Aisha', this)">Pass</button>
-            </div>
-        </div>
-
-        <div class="person-card" onclick="openProfile('Mercy', event)">
-            <img src="images/lady08.png" alt="Mercy">
-            <h2>Mercy, 26</h2>
-            <p>Lagos, Nigeria</p>
-            <p>Creative designer with a love for art and culture.</p>
-            <div class="card-buttons">
-                <button class="like-btn" onclick="likeProfile('Mercy')">
-    <span class="heart">♡</span> Like
-</button>
-                <button onclick="passProfile('Mercy', this)">Pass</button>
-            </div>
-        </div>
-
-        <div class="person-card" onclick="openProfile('Xeinah', event)">
-            <img src="images/lady10.png" alt="Xeinah">
-            <h2>Xeinah, 29</h2>
-            <p>Johannesburg, South Africa</p>
-            <p>Doctor who values family, faith, and fitness.</p>
-            <div class="card-buttons">
-               <button class="like-btn" onclick="likeProfile('Xeinah')">
-    <span class="heart">♡</span> Like
-</button>
-                <button onclick="passProfile('Xeinah', this)">Pass</button>
-            </div>
-        </div>
-
-        <div class="person-card" onclick="openProfile('Shanice', event)">
-            <img src="images/lady12.png" alt="Shanice">
-            <h2>Shanice, 25</h2>
-            <p>Accra, Ghana</p>
-            <p>Marketing professional and foodie at heart.</p>
-            <div class="card-buttons">
-                <button class="like-btn" onclick="likeProfile('Shanice')">
-    <span class="heart">♡</span> Like
-</button>
-                <button onclick="passProfile('Shanice', this)">Pass</button>
-            </div>
-        </div>
+<section class="discover-swipe">
+    <div class="discover-header">
+        <h1>Discover</h1>
+        <p>Swipe right to like · left to pass · up for super like</p>
     </div>
+
+    <div class="filter-bar">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="uganda">Uganda</button>
+        <button class="filter-chip" data-filter="kenya">Kenya</button>
+        <button class="filter-chip" data-filter="nigeria">Nigeria</button>
+        <button class="filter-chip" data-filter="travel">Travel</button>
+    </div>
+
+    <div class="swipe-area">
+        <div id="cardStack" class="card-stack"></div>
+    </div>
+
+    <div class="swipe-actions">
+        <button id="btnPass" class="action-btn pass-btn" title="Pass">✕</button>
+        <button id="btnSuper" class="action-btn super-btn" title="Super Like">★</button>
+        <button id="btnLike" class="action-btn like-action-btn" title="Like">♥</button>
+    </div>
+
+    <p class="discover-footer-link"><a href="discover-grid.html">Browse grid view →</a></p>
 </section>
 
-<footer>
-    <p>&copy; 2026 ASLN - African Single Ladies' Network</p>
-</footer>
+<div id="matchModal" class="match-modal">
+    <div class="match-content">
+        <div class="match-sparkles">✨</div>
+        <h2>It's a Match!</h2>
+        <p>You and <span id="matchName"></span> liked each other</p>
+        <img id="matchImg" src="" alt="Match">
+        <div class="match-btns">
+            <button id="msgMatch">Send Message</button>
+            <button id="closeMatch" class="secondary">Keep Swiping</button>
+        </div>
+    </div>
+</div>
 
-<script src="js/script.js"></script>
+<nav class="bottom-nav">
+    <a href="index.html" data-page="index.html">🏠<span>Home</span></a>
+    <a href="discover.html" data-page="discover.html">💫<span>Discover</span></a>
+    <a href="gallery.html" data-page="gallery.html">📸<span>Moments</span></a>
+    <a href="messages.html" data-page="messages.html">💬<span>Messages</span></a>
+    <a href="profile.html" data-page="profile.html">👤<span>Profile</span></a>
+</nav>
+
+<script src="js/app.js"></script>
+<script src="js/discover.js"></script>
 </body>
 </html>

@@ -1,249 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASLN Messenger</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ASLN Messenger</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
+<body class="messages-page">
 
-<body>
 <header class="main-header">
-
-    <a href="index.html" class="logo">
-        <h1>ASLN</h1>
-        <span>African Single Ladies' Network</span>
-    </a>
-
+    <a href="index.html" class="logo"><h1>ASLN</h1><span>African Single Ladies' Network</span></a>
     <nav class="navbar">
-        <a href="index.html">Home</a>
         <a href="discover.html">Discover</a>
-        <a href="profile.html">Profile</a>
+        <a href="gallery.html">Moments</a>
         <a href="messages.html" class="active">Messages</a>
+        <a href="profile.html">Profile</a>
     </nav>
-
 </header>
 
 <section class="messenger">
-
-    <!-- Left Menu -->
-
     <div class="menu-panel">
-
         <h2>Messenger</h2>
-
-        <a href="#">❤️ Matches</a>
-
-        <a href="#">💬 Messages</a>
-
-        <a href="#">⭐ Favorites</a>
-
-        <a href="#">🗂 Archived</a>
-
-        <a href="#">⚙ Settings</a>
-
+        <a href="discover.html">❤️ Matches</a>
+        <a href="messages.html" class="active">💬 Messages</a>
+        <a href="gallery.html">📸 Moments</a>
+        <a href="profile.html">⚙ Profile</a>
     </div>
-
-    <!-- Conversation List -->
 
     <div class="chat-list">
-
-    <h2>Chats</h2>
-
-    <div class="chat-search">
-
-        <input
-            type="text"
-            placeholder="🔍 Search conversations...">
-
-    </div>
-
-        <div class="chat-user active">
-
-    <img src="images/lady09.png">
-
-    <div class="chat-details">
-
-        <div class="chat-top">
-            <h3>Sarah</h3>
-            <span class="time">2m</span>
+        <h2>Chats <span class="encrypt-label">🔒 Encrypted</span></h2>
+        <div class="chat-search">
+            <input type="text" placeholder="Search conversations...">
         </div>
-
-        <span>Typing...</span>
-
+        <div id="chatList"></div>
     </div>
 
-    <span class="unread-count">2</span>
-
-</div>
-
-        <div class="chat-user">
-
-    <img src="images/lady01.png">
-
-    <div class="chat-details">
-
-        <div class="chat-top">
-            <h3>Amina</h3>
-            <span class="time">8m</span>
+    <div id="chatWindow" class="chat-window">
+        <div id="chatHeader" class="chat-header">
+            <img src="images/lady09.png" alt="">
+            <div><h2>Select a chat</h2><p>🔒 End-to-end encrypted</p></div>
         </div>
-
-        <span>See you later ❤️</span>
-
-    </div>
-
-</div>
-
-        <div class="chat-user">
-
-    <img src="images/lady05.png">
-
-    <div class="chat-details">
-
-        <div class="chat-top">
-            <h3>Grace</h3>
-            <span class="time">Yesterday</span>
+        <div id="chatMessages" class="messages">
+            <p class="empty-chat">Choose a conversation to start messaging securely.</p>
         </div>
-
-        <span>Good night 😊</span>
-
+        <form id="chatForm" class="message-box">
+            <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off">
+            <button type="submit" class="send-btn">➤</button>
+        </form>
     </div>
 
-</div>
-
-    </div>
-
-    <!-- Chat Window -->
-
-    <div class="chat-window">
-
-        <div class="chat-header">
-
-            <img src="images/lady09.png">
-
-            <div>
-
-                <h2>Sarah</h2>
-
-                <p>🟢 Online • ❤️ 96% Compatibility</p>
-
-            </div>
-
-        </div>
-
-        <div class="messages">
-
-            <div class="received">
-
-    Hi Jethro 👋
-
-    <div class="message-reactions">
-
-        <span>❤️</span>
-
-        <span>👍</span>
-
-        <span>😂</span>
-
-        <span>😮</span>
-
-        <span>🔥</span>
-
-    </div>
-
-</div>
-
-            <div class="sent">
-                Hello Sarah 😊
-            </div>
-
-            <div class="received">
-
-    Nice to meet you ❤️
-
-    <div class="message-reactions">
-
-        <span>❤️</span>
-
-        <span>👍</span>
-
-        <span>😂</span>
-
-        <span>😮</span>
-
-        <span>🔥</span>
-
-    </div>
-
-</div>
-
-        <div class="message-box">
-
-            <button>😊</button>
-
-            <button>📎</button>
-
-            <button>🎁</button>
-
-            <button>🎤</button>
-
-            <input
-                type="text"
-                placeholder="Type your message...">
-
-            <button class="send-btn">
-                ➤
-            </button>
-
-        </div>
-
-    </div>
-
-<!-- Profile Preview Panel -->
-
-<aside class="profile-preview">
-
-    <img src="images/lady09.png" alt="Sarah">
-
-    <h2>
-        Sarah
-        <span class="verified-chat">✔</span>
-    </h2>
-
-    <p>🟢 Online</p>
-
-    <p>❤️ 96% Compatibility</p>
-
-    <p>📍 Kampala, Uganda</p>
-
-    <p>🎂 24 Years Old</p>
-
-    <p>💼 Entrepreneur</p>
-
-    <p>🪪 Verified Member</p>
-
-    <div class="preview-interests">
-
-        <span>🎵 Music</span>
-
-        <span>✈ Travel</span>
-
-        <span>📚 Reading</span>
-
-    </div>
-
-    <a href="profile.html" class="preview-btn">
-        View Full Profile
-    </a>
-
-    <button class="preview-btn gift-btn">
-        🎁 Send Gift
-    </button>
-
-</aside>
-
+    <aside id="profilePreview" class="profile-preview">
+        <p class="preview-placeholder">Profile preview appears here</p>
+    </aside>
 </section>
-     
+
+<nav class="bottom-nav">
+    <a href="index.html" data-page="index.html">🏠<span>Home</span></a>
+    <a href="discover.html" data-page="discover.html">💫<span>Discover</span></a>
+    <a href="gallery.html" data-page="gallery.html">📸<span>Moments</span></a>
+    <a href="messages.html" data-page="messages.html">💬<span>Messages</span></a>
+    <a href="profile.html" data-page="profile.html">👤<span>Profile</span></a>
+</nav>
+
+<script src="js/app.js"></script>
+<script src="js/messages.js"></script>
 </body>
 </html>

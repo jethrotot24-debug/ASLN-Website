@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Moments Gallery - ASLN</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="gallery-page">
+
+<header class="main-header">
+    <a href="index.html" class="logo"><h1>ASLN</h1><span>African Single Ladies' Network</span></a>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="discover.html">Discover</a>
+        <a href="gallery.html" class="active">Moments</a>
+        <a href="messages.html">Messages</a>
+        <a href="profile.html">Profile</a>
+    </nav>
+</header>
+
+<section class="gallery-section">
+    <div class="gallery-hero">
+        <h1>ASLN Moments</h1>
+        <p>Real stories, real connections — shared by our community across Africa.</p>
+        <button id="openPost" class="post-moment-btn">+ Share a Moment</button>
+    </div>
+
+    <div class="gallery-filters">
+        <button class="gallery-filter active" data-cat="all">All</button>
+        <button class="gallery-filter" data-cat="Travel">Travel</button>
+        <button class="gallery-filter" data-cat="Life">Life</button>
+        <button class="gallery-filter" data-cat="Food">Food</button>
+        <button class="gallery-filter" data-cat="Events">Events</button>
+    </div>
+
+    <div id="momentsGrid" class="moments-grid"></div>
+</section>
+
+<div id="postPanel" class="post-panel">
+    <div class="post-panel-inner">
+        <button id="closePost" class="close-post">&times;</button>
+        <h2>Share Your Moment</h2>
+        <form id="postMomentForm">
+            <textarea id="momentCaption" placeholder="What's on your mind?" required></textarea>
+            <select id="momentCategory">
+                <option value="Life">Life</option>
+                <option value="Travel">Travel</option>
+                <option value="Food">Food</option>
+                <option value="Events">Events</option>
+            </select>
+            <input type="file" id="momentImage" accept="image/*">
+            <button type="submit">Post Moment</button>
+        </form>
+    </div>
+</div>
+
+<div id="lightbox" class="lightbox"></div>
+
+<nav class="bottom-nav">
+    <a href="index.html" data-page="index.html">🏠<span>Home</span></a>
+    <a href="discover.html" data-page="discover.html">💫<span>Discover</span></a>
+    <a href="gallery.html" data-page="gallery.html">📸<span>Moments</span></a>
+    <a href="messages.html" data-page="messages.html">💬<span>Messages</span></a>
+    <a href="profile.html" data-page="profile.html">👤<span>Profile</span></a>
+</nav>
+
+<script src="js/app.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>

@@ -8,15 +8,14 @@
 </head>
 <body>
 
-<header>
-    <a href="index.html" class="logo">ASLN</a>
-    <nav>
+<header class="main-header">
+    <a href="index.html" class="logo"><h1>ASLN</h1><span>African Single Ladies' Network</span></a>
+    <nav class="navbar">
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
         <a href="discover.html">Discover</a>
-        <a href="profile.html">Profile</a>
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
+        <a href="gallery.html">Moments</a>
+        <a href="messages.html">Messages</a>
+        <a href="profile.html" class="active">Profile</a>
     </nav>
 </header>
 
@@ -28,20 +27,22 @@
              class="profile-photo">
 
         <h2 id="userName">Sarah</h2>
-        <p class="location">Kampala, Uganda</p>
+        <span id="verifyBadge" class="verify-badge pending">Verification Pending</span>
+        <p class="location" id="userLocation">Kampala, Uganda</p>
 
         <div class="profile-details">
-            <p><strong>Age:</strong> 25</p>
+            <p><strong>Age:</strong> <span id="userAge">25</span></p>
             <p><strong>Email:</strong> <span id="userEmail">sarah@example.com</span></p>
-            <p><strong>Interests:</strong> Music, Travel, Sports</p>
+            <p><strong>Interests:</strong> <span id="userInterests">Music, Travel, Sports</span></p>
         </div>
 
-        <p class="bio">
+        <p class="bio" id="userBio">
             I am looking for meaningful connections
             and long-term relationships with someone who shares my values.
         </p>
 
         <button class="connect-btn">Send Message</button>
+        <a href="gallery.html" class="profile-link-btn">View Moments Gallery</a>
     </div>
 </section>
 
@@ -49,6 +50,15 @@
     <p>&copy; 2026 ASLN - African Single Ladies' Network</p>
 </footer>
 
+<nav class="bottom-nav">
+    <a href="index.html" data-page="index.html">🏠<span>Home</span></a>
+    <a href="discover.html" data-page="discover.html">💫<span>Discover</span></a>
+    <a href="gallery.html" data-page="gallery.html">📸<span>Moments</span></a>
+    <a href="messages.html" data-page="messages.html">💬<span>Messages</span></a>
+    <a href="profile.html" data-page="profile.html">👤<span>Profile</span></a>
+</nav>
+
+<script src="js/app.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

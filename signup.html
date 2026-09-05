@@ -2,40 +2,99 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Join ASLN</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="auth-page">
+<body class="auth-page signup-page">
 
-<header>
-    <a href="index.html" class="logo">ASLN</a>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="discover.html">Discover</a>
+<header class="main-header">
+    <a href="index.html" class="logo"><h1>ASLN</h1><span>African Single Ladies' Network</span></a>
+    <nav class="navbar">
         <a href="login.html">Login</a>
     </nav>
 </header>
 
-<div class="auth-container">
-    <h1>Join ASLN</h1>
-    <p class="subtitle">Create your account and start connecting</p>
+<div class="signup-wizard">
+    <div class="signup-progress-wrap">
+        <div class="signup-progress-bar"><div id="signupProgress"></div></div>
+        <p id="stepLabel">Step 1 of 4</p>
+    </div>
 
     <form id="signupForm">
-        <input type="text" id="firstName" placeholder="First Name" required>
-        <input type="text" id="lastName" placeholder="Last Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <input type="file" id="profilePicture" accept="image/*">
-        <button type="submit">Create Account</button>
+        <div class="signup-step active" data-step="1">
+            <h1>Create Account</h1>
+            <p class="subtitle">Join Africa's most trusted dating network</p>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password (6+ characters)" required minlength="6">
+            <input type="date" id="dateOfBirth" required>
+            <button type="button" id="nextStep1">Continue</button>
+        </div>
+
+        <div class="signup-step" data-step="2">
+            <h1>Identity Verification</h1>
+            <p class="subtitle">Required for a safe, trusted community</p>
+            <select id="country" required>
+                <option value="">Select Country</option>
+                <option value="UG">Uganda</option>
+                <option value="KE">Kenya</option>
+                <option value="NG">Nigeria</option>
+                <option value="GH">Ghana</option>
+                <option value="ZA">South Africa</option>
+                <option value="OTHER">Other African Country</option>
+            </select>
+            <select id="idType" required>
+                <option value="">ID Document Type</option>
+                <option value="NIN">National ID (NIN)</option>
+                <option value="National ID">National ID Card</option>
+                <option value="Passport">Passport</option>
+                <option value="Driver's License">Driver's License</option>
+            </select>
+            <input type="text" id="idNumber" placeholder="ID / NIN Number" required>
+            <p id="idHint" class="id-hint"></p>
+            <input type="file" id="idDocument" accept="image/*,.pdf" required>
+            <label class="file-label">Upload clear photo of your ID document</label>
+            <div class="step-btns">
+                <button type="button" class="prev-step secondary">Back</button>
+                <button type="button" id="nextStep2">Continue</button>
+            </div>
+        </div>
+
+        <div class="signup-step" data-step="3">
+            <h1>Your Profile</h1>
+            <p class="subtitle">Tell the community about yourself</p>
+            <input type="text" id="location" placeholder="City, Country" required>
+            <textarea id="bio" placeholder="Write a short bio..." rows="3"></textarea>
+            <input type="text" id="interests" placeholder="Interests (e.g. Music, Travel, Business)">
+            <input type="file" id="profilePicture" accept="image/*">
+            <label class="file-label">Profile photo (recommended)</label>
+            <div class="step-btns">
+                <button type="button" class="prev-step secondary">Back</button>
+                <button type="button" id="nextStep3">Continue</button>
+            </div>
+        </div>
+
+        <div class="signup-step" data-step="4">
+            <h1>Review & Submit</h1>
+            <div class="review-box">
+                <p><strong>Name:</strong> <span id="reviewName"></span></p>
+                <p><strong>Email:</strong> <span id="reviewEmail"></span></p>
+                <p><strong>ID:</strong> <span id="reviewId"></span></p>
+                <p class="review-note">Your ID will be reviewed within 24-48 hours. You'll receive a verified badge once approved.</p>
+            </div>
+            <div class="step-btns">
+                <button type="button" class="prev-step secondary">Back</button>
+                <button type="submit">Create Account</button>
+            </div>
+        </div>
     </form>
 
-    <p class="auth-link">
-        Already have an account? <a href="login.html">Login</a>
-    </p>
+    <p class="auth-link">Already have an account? <a href="login.html">Login</a></p>
 </div>
 
-<script src="js/script.js"></script>
+<script src="js/app.js"></script>
+<script src="js/signup.js"></script>
 </body>
 </html>

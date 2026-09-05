@@ -18,7 +18,8 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "20mb" }));
+app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 
 // Test route
 app.get("/", (req, res) => {
@@ -31,7 +32,17 @@ app.get("/", (req, res) => {
 // Signup route
 app.post("/signup", async (req, res) => {
     try {
-        const { firstName, lastName, email, password } = req.body;
+        const {
+    firstName,
+    lastName,
+    email,
+    password,
+    dateOfBirth,
+    country,
+    location,
+    bio,
+    interests
+} = req.body;
 
         // Check if email already exists
         const existingUser = await pool.query(
@@ -58,12 +69,30 @@ app.post("/signup", async (req, res) => {
 
         const userId = newUser.rows[0].id;
 
-        // Create profile linked to user
-        await pool.query(
-            `INSERT INTO profiles (user_id, first_name, last_name)
-             VALUES ($1, $2, $3)`,
-            [userId, firstName, lastName]
-        );
+       // Create profile linked to user
+await pool.query(
+    `INSERT INTO profiles (
+        user_id,
+        first_name,
+        last_name,
+        date_of_birth,
+        country,
+        city,
+        bio,
+        interested_in
+    )
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    [
+        userId,
+        firstName,
+        lastName,
+        dateOfBirth,
+        country,
+        location,
+        bio,
+        interests
+    ]
+);
 
         res.status(201).json({
             message: "Account created successfully!",
