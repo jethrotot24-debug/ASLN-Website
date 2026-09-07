@@ -90,18 +90,44 @@ function saveUser(event) {
     }
 }
 
-function loginUser(event) {
+async function loginUser(event) {
     event.preventDefault();
 
-    const email = document.getElementById("loginEmail").value;
+    const email = document.getElementById("loginEmail").value.trim();
     const password = document.getElementById("loginPassword").value;
-    const savedUser = JSON.parse(localStorage.getItem("aslnUser"));
 
-    if (savedUser && savedUser.email === email && savedUser.password === password) {
-        alert("Welcome back, " + savedUser.firstName + "!");
+    try {
+        const response = await fetch("http://localhost:5000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            alert(result.message || "Login failed. Please try again.");
+            return;
+        }
+
+        // Save logged-in user data locally
+        localStorage.setItem(
+            "aslnUser",
+            JSON.stringify(result.user)
+        );
+
+        alert("Welcome back, " + result.user.firstName + "!");
+
         window.location.href = "profile.html";
-    } else {
-        alert("Invalid email or password. Please try again or sign up.");
+
+    } catch (error) {
+        console.error("Login error:", error);
+        alert("Could not connect to the ASLN server.");
     }
 }
 

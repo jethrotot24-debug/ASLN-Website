@@ -97,17 +97,35 @@ const ASLN = {
     },
 
     loadProfileExtras() {
-        const user = this.getUser();
-        if (!user) return;
+    const user = this.getUser();
+    if (!user) return;
 
-        const map = {
-            userName: user.firstName + " " + user.lastName,
-            userEmail: user.email,
-            userLocation: user.location || "Africa",
-            userBio: user.bio || "Looking for meaningful connections.",
-            userAge: user.age || "—",
-            userInterests: user.interests || "Music, Travel, Sports"
-        };
+    let age = "—";
+
+    if (user.dateOfBirth) {
+        const birthDate = new Date(user.dateOfBirth);
+        const today = new Date();
+
+        age = today.getFullYear() - birthDate.getFullYear();
+
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+
+        if (
+            monthDifference < 0 ||
+            (monthDifference === 0 && today.getDate() < birthDate.getDate())
+        ) {
+            age--;
+        }
+    }
+
+    const map = {
+        userName: user.firstName + " " + user.lastName,
+        userEmail: user.email,
+        userLocation: user.location || "Africa",
+        userBio: user.bio || "Looking for meaningful connections.",
+        userAge: age,
+        userInterests: user.interests || "Music, Travel, Sports"
+    };
 
         Object.entries(map).forEach(([id, val]) => {
             const el = document.getElementById(id);
@@ -134,3 +152,4 @@ const ASLN = {
 };
 
 document.addEventListener("DOMContentLoaded", () => ASLN.init());
+
