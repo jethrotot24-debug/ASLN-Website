@@ -1,14 +1,67 @@
+/* =========================================
+   ASLN DESIGN SYSTEM — FOUNDATION
+   ========================================= */
+
+:root {
+    /* Brand */
+    --gold: #FFD700;
+    --gold-dark: #C9A227;
+    --gold-light: #FFE873;
+
+    /* Backgrounds */
+    --bg: #0A0A0A;
+    --asln-black: #050505;
+    --surface: #111114;
+    --card: #1A1A1A;
+    --card-hover: #202024;
+
+    /* Text */
+    --text: #FFFFFF;
+    --muted: #A1A1AA;
+
+    /* Status */
+    --success: #22C55E;
+    --danger: #EF4444;
+    --info: #3B82F6;
+
+    /* Borders */
+    --border: rgba(255, 215, 0, 0.18);
+
+    /* Radius */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-pill: 999px;
+
+    /* Shadows */
+    --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.25);
+    --shadow-gold: 0 15px 40px rgba(255, 215, 0, 0.16);
+
+    /* Animation */
+    --transition: 0.3s ease;
+
+    /* Mobile safe area */
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #111;
-    color: white;
+    background: var(--bg);
+    color: var(--text);
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 header {
@@ -2243,14 +2296,6 @@ footer a:hover {
    NEW FEATURES — Swipe, Gallery, Signup, Nav
    ========================================= */
 
-:root {
-    --gold: #FFD700;
-    --gold-dark: #C9A227;
-    --bg: #0a0a0a;
-    --card: #1a1a1a;
-    --safe-bottom: env(safe-area-inset-bottom, 0px);
-}
-
 .asln-toast {
     position: fixed;
     bottom: calc(80px + var(--safe-bottom));
@@ -2737,5 +2782,232 @@ footer a:hover {
 @media (orientation: landscape) and (max-height: 500px) {
     .swipe-area { height: 320px; }
     .discover-swipe { padding-bottom: 80px; }
+}
+
+/* =========================================
+   ASLN PREMIUM INTERACTION LAYER
+   STEP 3
+   ========================================= */
+
+/* ---------- Premium Buttons ---------- */
+
+button,
+.btn,
+.cta-btn,
+.hero button,
+.hero .cta-btn {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+button:hover,
+.btn:hover,
+.cta-btn:hover,
+.hero button:hover,
+.hero .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 215, 0, 0.22);
+}
+
+button:active,
+.btn:active,
+.cta-btn:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* ---------- Premium Cards ---------- */
+
+.card,
+.profile-card,
+.person-card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card:hover,
+.profile-card:hover,
+.person-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 215, 0, 0.55);
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(255, 215, 0, 0.10);
+}
+
+/* ---------- Gold Links ---------- */
+
+nav a {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* ---------- Gold Focus ---------- */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* ---------- Premium Selection ---------- */
+
+::selection {
+    background: var(--gold);
+    color: #111;
+}
+
+/* ---------- Smooth Images ---------- */
+
+img {
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+/* ---------- Respect Reduced Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================================
+   ASLN PREMIUM HEADER
+   STEP 3B
+   ========================================= */
+
+header {
+    background: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255, 215, 0, 0.28);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.28);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* ---------- Logo ---------- */
+
+.logo {
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+}
+
+.logo h1 {
+    text-shadow:
+        0 0 18px rgba(255, 215, 0, 0.18);
+}
+
+/* ---------- Navigation ---------- */
+
+nav a {
+    position: relative;
+    padding: 8px 2px;
+    margin-left: 30px;
+    color: rgba(255, 255, 255, 0.88);
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        var(--gold-dark),
+        var(--gold),
+        var(--gold-light)
+    );
+
+    border-radius: 10px;
+
+    transition: width 0.25s ease;
+}
+
+nav a:hover {
+    color: var(--gold);
+    transform: translateY(-1px);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ---------- Active Page ---------- */
+
+nav a.active {
+    color: var(--gold);
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+/* ---------- Join Button ---------- */
+
+header button,
+header .btn {
+    box-shadow:
+        0 6px 20px rgba(255, 215, 0, 0.12);
+}
+
+header button:hover,
+header .btn:hover {
+    box-shadow:
+        0 10px 28px rgba(255, 215, 0, 0.28);
+}
+
+/* ---------- Mobile Header ---------- */
+
+@media (max-width: 768px) {
+
+    header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    nav a {
+        margin-left: 14px;
+        font-size: 15px;
+    }
+
 }
 

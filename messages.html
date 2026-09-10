@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>ASLN Messenger</title>
+<title>ASLN Messages</title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/premium.css">
+<script>
+(function(){try{document.documentElement.setAttribute("data-theme", localStorage.getItem("aslnTheme")||"dark");}catch(e){}})();
+</script>
 </head>
 <body class="messages-page">
 
@@ -14,44 +18,55 @@
         <a href="discover.html">Discover</a>
         <a href="gallery.html">Moments</a>
         <a href="messages.html" class="active">Messages</a>
+        <a href="premium.html">Premium</a>
         <a href="profile.html">Profile</a>
     </nav>
 </header>
 
-<section class="messenger">
-    <div class="menu-panel">
-        <h2>Messenger</h2>
-        <a href="discover.html">❤️ Matches</a>
-        <a href="messages.html" class="active">💬 Messages</a>
-        <a href="gallery.html">📸 Moments</a>
-        <a href="profile.html">⚙ Profile</a>
-    </div>
-
-    <div class="chat-list">
-        <h2>Chats <span class="encrypt-label">🔒 Encrypted</span></h2>
+<section class="wa-messenger" id="waApp">
+    <aside class="wa-sidebar">
+        <div class="wa-side-head">
+            <h2>Chats</h2>
+            <span class="encrypt-label">🔒 Encrypted</span>
+        </div>
+        <div class="wa-tabs">
+            <button type="button" class="wa-tab active" data-filter="all">All</button>
+            <button type="button" class="wa-tab" data-filter="unread">Unread</button>
+            <button type="button" class="wa-tab" data-filter="online">Online</button>
+        </div>
         <div class="chat-search">
-            <input type="text" placeholder="Search conversations...">
+            <input id="chatSearch" type="search" placeholder="Search or start a new chat" autocomplete="off">
         </div>
         <div id="chatList"></div>
-    </div>
+    </aside>
 
-    <div id="chatWindow" class="chat-window">
-        <div id="chatHeader" class="chat-header">
+    <div class="wa-chat" id="chatWindow">
+        <div class="wa-chat-head" id="chatHeader">
+            <button type="button" class="wa-back" id="waBack" aria-label="Back">←</button>
             <img src="images/lady09.png" alt="">
-            <div><h2>Select a chat</h2><p>🔒 End-to-end encrypted</p></div>
+            <div>
+                <h2>ASLN Messenger</h2>
+                <p>Select a chat · WhatsApp-style, gold ASLN</p>
+            </div>
+            <div class="wa-head-actions">
+                <button type="button" class="wa-icon-btn" title="Voice">📞</button>
+                <button type="button" class="wa-icon-btn" title="Video">🎥</button>
+            </div>
         </div>
-        <div id="chatMessages" class="messages">
-            <p class="empty-chat">Choose a conversation to start messaging securely.</p>
+        <div id="chatMessages" class="wa-thread">
+            <div class="wa-empty">Choose a conversation. Messages look and feel like WhatsApp — ticks, timestamps, and a live composer.</div>
         </div>
-        <form id="chatForm" class="message-box">
-            <input id="chatInput" type="text" placeholder="Type your message..." autocomplete="off">
-            <button type="submit" class="send-btn">➤</button>
+        <div class="emoji-tray" id="emojiTray">
+            <button type="button">❤️</button><button type="button">😍</button><button type="button">🔥</button>
+            <button type="button">😊</button><button type="button">🙏</button><button type="button">✨</button>
+            <button type="button">💛</button><button type="button">🌹</button><button type="button">😂</button>
+        </div>
+        <form id="chatForm" class="wa-composer">
+            <button type="button" class="wa-icon-btn" id="emojiBtn" title="Emoji">😊</button>
+            <input id="chatInput" type="text" placeholder="Type a message" autocomplete="off">
+            <button type="submit" class="wa-send" aria-label="Send">➤</button>
         </form>
     </div>
-
-    <aside id="profilePreview" class="profile-preview">
-        <p class="preview-placeholder">Profile preview appears here</p>
-    </aside>
 </section>
 
 <nav class="bottom-nav">
@@ -63,6 +78,7 @@
 </nav>
 
 <script src="js/app.js"></script>
+<script src="js/premium.js"></script>
 <script src="js/messages.js"></script>
 </body>
 </html>
